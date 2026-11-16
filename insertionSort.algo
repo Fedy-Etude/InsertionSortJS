@@ -1,0 +1,24 @@
+function insertionSort(arr) {
+    // Start from the second element (index 1) 
+    // because the first element (index 0) is trivially sorted
+    for (let i = 1; i < arr.length; i++) {
+        
+        // Select the current element to be inserted
+        let key = arr[i];
+        
+        // Index of the last element in the sorted sequence (0 to i-1)
+        let j = i - 1;
+
+        // Move elements of arr[0..i-1] that are greater than the key
+        // to one position ahead of their current position
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        
+        // Insert the key into its correct position in the sorted sequence
+        arr[j + 1] = key;
+    }
+    
+    return arr;
+}
